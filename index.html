@@ -30,20 +30,22 @@
 
   <div>
     <div id="controlsConfig">
-      <div class="toggler" onclick="toggler(this)"></div>
+      <!-- <div class="toggler" onclick="toggler(this)"></div> -->
       <div id="webCamContainer">
-        <video id="webCam" height="240" width="320"></video>
-        <div id="fps" align="right"></div>
-        <p id="label"></p>
+        <div id="label"></div>
+        <video id="webCam" height="auto" width="100%"></video>
+        <img  id="steerWheel" src="images/layout/steer.svg" height="auto" width="80%" />
       </div>
+      <div id="fps" align="left"></div>
+
+    </div>
+    <div id="settings">
+      <!-- <div class="toggler" onclick="toggler(this)"></div> -->
       <input type="range" id="steerSlider" min="0" max="1" step="0.01" value="0.5" />
       <button id="accelerateBtn">Feed Accelerate</button>
       <button id="brakeBtn">Feed Brake</button>
       <button id="trainBtn">Train</button>
       <button id="saveBtn">Save</button>
-    </div>
-    <div id="settings">
-      <div class="toggler" onclick="toggler(this)"></div>
       <table id="controls">
         <tr>
           
@@ -91,10 +93,9 @@
           <td><input id="fogDensity" type='range' min='0' max='50' title="integer (0-50)"></td>
         </tr>
       </table>
-    
-      <div id='instructions'>
-        <p>Use the <b>arrow keys</b> to drive the car.</p>
-      </div>
+    </div>
+    <div id='instructions'>
+      <p>credits <u><b>sourabhR4ikwar</b></u>.</p>
     </div>
   </div>
 </div>

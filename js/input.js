@@ -14,6 +14,7 @@ let feedBrakeButton;
 let trainButton;
 let saveButton;
 let labelContainer = document.getElementById('label');
+let wheel = document.getElementById("steerWheel");
 let label = "Loading Model...";
 let controls = {
     steer: 0,
@@ -47,7 +48,7 @@ function gotSteerResults(err, result){
     }
     else {
         controls.steer = result.value.toFixed(2);
-        steerSlider.value = controls.steer;
+        // steerSlider.value = controls.steer;
         if(+controls.steer >= 0.4 && +controls.steer <= 0.6){
             keyLeft = false;
             keyRight = false;
@@ -105,38 +106,9 @@ function whileSteerTraining(loss){
 }
 
 
-// function setup(){
-//     createCanvas(320,240);
-//     webCam = createCapture(VIDEO);
-//     webCam.hide();
-//     mobilenet = ml5.featureExtractor('MobileNet', modelReady);
-//     mobilenet2 = ml5.featureExtractor('MobileNet', model2Ready);
-//     label = "Loading Model..."
-//     steerPredictor = mobilenet.regression(webCam, steerPredictorReady);
-//     accelerateClassifier = mobilenet2.classification(webCam, accelerateClassifierReady);
-//     steerSlider = createSlider(0,1,0.5,0.01);
-//     feedAccelerateButton = createButton('Feed Accelerate');
-//     feedBrakeButton = createButton('Feed Brake');
-//     trainButton = createButton('Train Model');
-//     feedAccelerateButton.mousePressed(function(){
-//         steerPredictor.addImage(steerSlider.value());
-//         accelerateClassifier.addImage('accelerate');
-//     });
-//     feedBrakeButton.mousePressed(function () {
-//         // steerPredictor.addImage(steerSlider.value());
-//         accelerateClassifier.addImage('brake');
-//     });
-//     trainButton.mousePressed(function(){
-//         steerPredictor.train(whileSteerTraining);
-//     });
-//     steerSlider.hide();
-//     feedAccelerateButton.hide();
-//     feedBrakeButton.hide();
-//     trainButton.hide();
-// }
-
 function draw() {
     labelContainer.innerText = label;
+    wheel.style.transform = 'rotate('+ ((controls.steer * 10 * 18) - 90) +'deg)';
 }
 
 function setup(){
@@ -162,8 +134,9 @@ function setup(){
     })
     .catch(err => console.log(err));
     feedAccelerateButton.addEventListener('click', function () {
-        steerPredictor.addImage(steerSlider.value);
+        steerPredictor.addImage(+steerSlider.value);
         accelerateClassifier.addImage('accelerate');
+        // label = steerSlider.value;
     });
     feedBrakeButton.addEventListener('click', function () {
         // steerPredictor.addImage(steerSlider.value());
@@ -171,25 +144,14 @@ function setup(){
     });
     trainButton.addEventListener('click', function () {
         steerPredictor.train(whileSteerTraining);
+        // autoTrain();
     });
     saveButton.addEventListener('click', function () {
+        steerPredictor.save();
+        accelerateClassifier.save();
     });
     setInterval(draw, 33);
 }
 
 setup();
 
-// function draw(){
-//     background(0);
-//     push();
-//     translate(width, 0);
-//     scale(-1, 1);
-//     image(webCam, 0, 0, 320, 260);
-//     pop();
-//     rectMode(CENTER);
-//     fill(255, 0, 200);
-//     rect(controls.steer * width, height/2, 50,50);
-//     fill(255);
-//     textSize(16);
-//     text(label, 10, height-10);
-// }

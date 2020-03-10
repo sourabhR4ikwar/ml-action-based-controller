@@ -13,7 +13,7 @@ body          { font-family: Arial, Helvetica, sans-serif; background-color: #0B
 #stats        { border: 2px solid black; }
 #controls     { width: 28em; float: left; padding: 1em; font-size: 0.7em; }
 #controls th  { text-align: right; vertical-align: middle; }
-#instructions { clear: left; float: left; width: 17em; padding: 1em; border: 1px solid black; box-shadow: 0 0 5px black; }
+#instructions { clear: both; margin: 0 auto; width: 17em; padding: 1em; border: 1px solid black; color: #b8b08d;font-size:30px;box-shadow: 0 0 5px black; }
 #racer        { position: relative; z-index: 0; width: 1024px; height: 728px; border: 2px solid black; }
 #canvas       { position: absolute; z-index: 0; width: 100%; height: 100%; z-index: 0; background-color: #72D7EE; }
 #mute         { background-position:   0px 0px; width: 32px; height: 32px; background: url(images/mute.png); display: inline-block; cursor: pointer; position: absolute; margin-left: 20em; }
@@ -37,9 +37,42 @@ body          { font-family: Arial, Helvetica, sans-serif; background-color: #0B
 /* rudimentary heads up display (only used in v4) */
 /**************************************************/
 
+
+#webCamContainer {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    height: 300px;
+    overflow: hidden;
+}
+
 #webCam
 {
     transform: rotateY(180deg);
-    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-    -moz-transform:rotateY(180deg); /* Firefox */
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg); 
+}
+
+#steerWheel {
+    margin-top: -100px;
+} 
+
+#label {
+    height: 30px;
+    margin: 10px auto;
+    padding: 5px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+    font-size: x-large;
+    background-color: #283845;
+    color: #b8b08d;
+}
+
+#settings {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#fps div{
+    text-align: center !important;
 }

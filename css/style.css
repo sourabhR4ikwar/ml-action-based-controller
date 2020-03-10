@@ -4,4 +4,60 @@
         margin: 0;
         box-sizing: border-box;
     }
-    
+    #settings {
+        position: fixed;
+        top:0;
+        left:-350px;
+        height: 100%;
+        width: 350px;
+        z-index: 1;
+        border: 2px solid black;
+        transition: all 0.3s ease-in-out;
+        background-color: rgba(255,0,0,0.4);
+    }
+
+    #settings.open {
+        left: 0;
+    }
+
+    #controlsConfig {
+        position: fixed;
+        top:0;
+        right:-350px;
+        height: 100%;
+        width: 350px;
+        z-index: 1;
+        border: 2px solid black;
+        transition: all 0.3s ease-in-out;
+        background-color: rgba(255,0,0,0.4);
+    }
+
+    #controlsConfig.open {
+        right: 0;
+    }
+
+    #game {
+        position:fixed;
+        height: 100%;
+        width: 100%;
+        top:0;
+        left:0;
+        /* background-color: grey; */
+    }
+
+    .toggler {
+        position: absolute;
+        top: 10px;
+        height: 50px;
+        width: 100px;
+        border: 2px solid black;
+        background-color: rgba(255,0,0,0.4);
+    }
+
+    #settings .toggler{
+        right: -100px;
+    }
+
+    #controlsConfig .toggler{
+        left: -100px;
+    }
