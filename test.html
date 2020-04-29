@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Driver</title>
+</head>
+<body>
+<style>
+
+    #settings {
+        position: fixed;
+        top:0;
+        left:-350px;
+        height: 100%;
+        width: 350px;
+        z-index: 1;
+        border: 2px solid black;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #settings.open {
+        left: 0;
+    }
+
+    #controls {
+        position: fixed;
+        top:0;
+        right:-350px;
+        height: 100%;
+        width: 350px;
+        z-index: 1;
+        border: 2px solid black;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #controls.open {
+        right: 0;
+    }
+
+    #game {
+        position:fixed;
+        height: 100%;
+        width: 100%;
+        top:0;
+        left:0;
+        background-color: grey;
+    }
+
+    .toggler {
+        position: absolute;
+        top: 10px;
+        height: 50px;
+        width: 100px;
+        border: 2px solid black;
+    }
+
+    #settings .toggler{
+        right: -100px;
+    }
+
+    #controls .toggler{
+        left: -100px;
+    }
+
+</style>
+    <div id="settings">
+        <div class="toggler" onclick="toggler(this)"></div>
+    </div>
+    <div id="controls">
+        <div class="toggler" onclick="toggler(this)"></div>
+    </div>
+    <div id="game"></div>
+<script>
+    function toggler(el){
+        el.parentNode.classList.toggle('open');
+    }
+</script>
+</body>
+</html>
