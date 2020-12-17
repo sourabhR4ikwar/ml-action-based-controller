@@ -11,9 +11,9 @@ Adding More realistic feel to driving games without any high cost racing simulat
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-## Screenshots and Clips
+## Screenshots 
 
-- **Watch the Video** <br /> [![Watch the video](https://img.youtube.com/vi/gmY35gfaceI/hqdefault.jpg)](https://youtu.be/gmY35gfaceI)
+ ![Watch the video](/screenshot.JPG)
 
 
 ## Tech/framework used
